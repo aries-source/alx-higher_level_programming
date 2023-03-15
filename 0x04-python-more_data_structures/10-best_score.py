@@ -1,9 +1,13 @@
 !/usr/bin/python3
 def best_score(a_dictionary):
-    if a_dictionary is None:
+    """Returns a key with the biggest integer value."""
+    if not isinstance(a_dictionary, dict) or len(a_dictionary) == 0:
         return None
 
-    b_score = max(a_dictionary.values(), default=None)
+    ret = list(a_dictionary.keys())[0]
+    big = a_dictionary[ret]
     for k, v in a_dictionary.items():
-        if v == b_score:
-            return k
+        if v > big:
+            big = v
+            ret = k
+    return (ret)
